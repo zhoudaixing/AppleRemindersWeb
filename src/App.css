@@ -1,0 +1,8 @@
+#root {
+  background-color: red;
+}
+
+.app-container {
+  height: 100%;
+  display: flex;
+}

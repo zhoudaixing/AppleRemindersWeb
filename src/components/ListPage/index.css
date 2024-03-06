@@ -1,0 +1,15 @@
+.listpage {
+  background-color: pink;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* header, .title {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.list-container {
+  flew-grow: 1;
+} */
