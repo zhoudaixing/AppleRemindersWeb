@@ -11,6 +11,10 @@ export const initialList = [
     id: 3,
     title: "All",
   },
+  {
+    id: 4,
+    title: 'reminders',
+  }
 ];
 
 // export const initialListReminders = [

@@ -1,0 +1,45 @@
+.list-card {
+  min-width: 4rem;
+  max-width: 10rem;
+  min-height: 8rem;
+  margin: 0.5rem;
+  border-radius: 1rem;
+  background-color: #FFFFFF;
+  flex: 40%;
+  position: relative;
+  padding: 1rem;
+}
+
+.list-card.active {
+  background-color: #448AFF;
+}
+
+.list-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: orange;
+  position: absolute;
+  /* top: 1rem;
+  left: 1rem; */
+}
+
+.items-count {
+  width: 2rem;
+  height: 2rem;
+  /* border-radius: 50%; */
+  /* background-color: orange; */
+  position: absolute;
+  /* top: 1rem;
+  left: 1rem; */
+  right: 0;
+}
+
+.list-title {
+  /* width: 2rem; */
+  height: 2rem;
+  /* border-radius: 50%; */
+  /* background-color: orange; */
+  position: absolute;
+  bottom: 0;
+}

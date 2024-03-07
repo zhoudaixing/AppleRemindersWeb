@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <div className="app-container">
-        <Sidebar data={list} />
+        <Sidebar list={list} activeList={listName} setlistName={setlistName}/>
         <ListPage currentList={listName} setAppData={setAppData} appData={appData}/>
       </div>
     </>

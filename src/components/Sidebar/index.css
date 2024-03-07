@@ -1,5 +1,13 @@
 .sidebar {
   width: 25%;
-  background-color: yellow;
+  background-color: white;
   /* height: 100%; */
+}
+
+.list-card-list {
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+  background-color: #BDBDBD;
 }
