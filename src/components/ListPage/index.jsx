@@ -4,8 +4,15 @@ import AddItemButton from "../AddItemButton";
 import { useRef } from "react";
 import ItemCard from "../ItemCard";
 import { v4 as uuidv4 } from "uuid";
+import Toolbar from "../Toolbar";
 
-const ListPage = ({ currentList, appData, setAppData }) => {
+const ListPage = ({
+  currentList,
+  appData,
+  setAppData,
+  showCompleted,
+  setShowCompleted,
+}) => {
   // console.log(currentList);
   // const listData = appData.filter((item) => item.list === currentList);
   const itemsRef = useRef(null);
@@ -65,12 +72,27 @@ const ListPage = ({ currentList, appData, setAppData }) => {
 
   return (
     <div className="listpage">
-      <header>toolbar</header>
-      <div className="title">This is a ListPage.</div>
+      <Toolbar
+        showCompleted={showCompleted}
+        setShowCompleted={setShowCompleted}
+      ></Toolbar>
+
+      <div className="listpage-title">{currentList}</div>
+
       <div className="list-container">
         {appData
-          .filter((item) => item.list === currentList)
-          .sort((a, b) => a.order - b.order)
+          .filter((item) => {
+            let show = true;
+            if (!showCompleted) show = show && item.completed === false;
+            show = show && item.list === currentList;
+            return show;
+          })
+          .sort((a, b) => {
+            if(a.completed && b.completed) return 0
+            if(a.completed) return 1
+            if(b.completed) return -1
+            return a.order - b.order;
+          })
           .map((item) => (
             <ItemCard
               key={item.id}

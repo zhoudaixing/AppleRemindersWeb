@@ -1,5 +1,6 @@
 .item-card {
-  width: 100%;
+  padding-left: 0.5rem;
+  /* width: 100%; */
   display: flex;
 }
 
@@ -27,5 +28,5 @@
 
 .item-box .completed {
   color: gray;
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
 }

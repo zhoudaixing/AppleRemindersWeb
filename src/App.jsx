@@ -8,14 +8,21 @@ import ListPage from "./components/ListPage";
 
 function App() {
   const [list, setList] = useState(initialList);
-  const [listName, setlistName] = useState('reminders');
+  const [listName, setlistName] = useState("reminders");
   const [appData, setAppData] = useState(initialListReminders);
+  const [showCompleted, setShowCompleted] = useState(false);
 
   return (
     <>
       <div className="app-container">
-        <Sidebar list={list} activeList={listName} setlistName={setlistName}/>
-        <ListPage currentList={listName} setAppData={setAppData} appData={appData}/>
+        <Sidebar list={list} activeList={listName} setlistName={setlistName} />
+        <ListPage
+          currentList={listName}
+          setAppData={setAppData}
+          appData={appData}
+          showCompleted={showCompleted}
+          setShowCompleted={setShowCompleted}
+        />
       </div>
     </>
   );

@@ -1,8 +1,19 @@
 #root {
-  background-color: red;
+
 }
 
 .app-container {
   height: 100%;
   display: flex;
+}
+
+@media screen and (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+
+  .listpage {
+    width: 100%;
+  }
+  
 }

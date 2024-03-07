@@ -10,7 +10,6 @@ const Sidebar = ({ list, activeList, setlistName }) => {
   // console.log(handleClick('Today'))
   return (
     <aside className="sidebar">
-      This is a Sidebar.
       <div className={classNames("list-card-list")}>
         {list.map((item) => (
           // <div key={item.id}>{`${item.id} + ${item.title}`}</div>

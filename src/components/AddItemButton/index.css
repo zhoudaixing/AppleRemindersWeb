@@ -1,5 +1,5 @@
-.add-item-button {
+.add-item-bar {
   position: fixed;
-  bottom: 0;
-
+  bottom: 1rem;
+  padding-left: 1rem;
 }

@@ -1,8 +1,19 @@
 .listpage {
-  background-color: pink;
-  width: 75%;
+  /* background-color: pink; */
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (min-width: 900px) {
+  .listpage {
+    width: 75%;
+  }  
+}
+
+.listpage-title {
+  margin: 0.5rem;
+  font-size: 1.6rem;
+  /* background-color: red; */
 }
 
 /* header, .title {

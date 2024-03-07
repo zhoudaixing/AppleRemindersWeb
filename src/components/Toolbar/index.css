@@ -1,0 +1,13 @@
+.toolbar {
+  margin: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+/* .toolbar .toolbar-right {
+  display: flex;
+  justify-content: space-between;
+} */
+.toolbar .icon {
+  margin: 0 0.2rem;
+  width: 1.4rem;
+}

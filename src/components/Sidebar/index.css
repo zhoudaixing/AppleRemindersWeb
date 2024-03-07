@@ -1,6 +1,6 @@
 .sidebar {
   width: 25%;
-  background-color: white;
+  background-color: #BDBDBD;
   /* height: 100%; */
 }
 
@@ -9,5 +9,5 @@
   display: flex;
   flex-wrap: wrap;
   /* justify-content: space-around; */
-  background-color: #BDBDBD;
+  
 }
