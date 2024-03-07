@@ -1,4 +1,38 @@
 .item-card {
   width: 100%;
+  display: flex;
   /* background-color: blue; */
+  /* margin: 12px 0; */
+  /* padding: 12px 0; */
+}
+
+.item-box {
+  border-bottom: solid black 1px;
+  padding: 0.5rem 0;
+  width: 100%;
+
+}
+
+.check-box {
+  /* padding: 0.5rem 0; */
+  min-width: 2rem;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  /* flex-basis: 30px; */
+  /* flex-grow: 0; */
+}
+
+.item-box input {
+  /* background-color: pink; */
+  border: none;
+  outline: none;
+  width: 100%;
+
+}
+
+.item-box .completed {
+  /* background-color: red; */
+  color: gray;
+  text-decoration: line-through;
 }

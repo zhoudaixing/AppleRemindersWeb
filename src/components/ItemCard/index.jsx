@@ -1,22 +1,41 @@
 import "./index.css";
-import { forwardRef, useState } from "react";
+import { forwardRef} from "react";
+import classNames from "classnames";
+import Checkbox from "../Checkbox";
 
 const ItemCard = forwardRef(function ItemCard(props, ref) {
-  const [completed, setCompleted] = useState(false);
-  const {onClick, details, onChange} = props
-  function handleChange(e) {
-    // console.log(e);
-    setCompleted(e.target.checked);
+  // const [completed, setCompleted] = useState(false);
+  const { details, onChange, onCheck } = props;
+  function handleCheck(e) {
+    // console.log(details);
+    onCheck(details, e.target.checked);
   }
-  function handleTextChange(e) {
+  function handleChange(e) {
     // console.log(e.target.value)
-    onChange(details.id, e.target.value)
+    onChange(details, e.target.value);
   }
   return (
-    <div className="item-card" onClick={onClick}>
-      <input type="checkbox" checked={completed} onChange={handleChange} />
-      {completed ? <s>{details.title}</s> : details.title}
-      <input ref={ref} value={details.title} onChange={handleTextChange}/>
+    <div className="item-card">
+      <div className={classNames('check-box')}>
+        <Checkbox checked={details.completed} onChange={handleCheck}/>
+        {/* <input
+          type="checkbox"
+          // className={classNames("checkbox")}
+          checked={details.completed}
+          onChange={handleCheck}
+        /> */}
+      </div>
+
+      {/* {completed ? <s>{details.title}</s> : details.title} */}
+      <div className={classNames("item-box")}>
+        <input
+          className={classNames("input", { completed: details.completed })}
+          ref={ref}
+          value={details.title}
+          onChange={handleChange}
+        />
+      </div>
+
     </div>
   );
 });
