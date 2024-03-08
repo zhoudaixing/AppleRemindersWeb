@@ -1,5 +1,5 @@
 #root {
-
+  font-size: 18px;
 }
 
 .app-container {
@@ -7,13 +7,33 @@
   display: flex;
 }
 
-@media screen and (max-width: 900px) {
+/* @media screen and (max-width: 900px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  
+  
+} */
+
+@media screen and (min-width: 1200px) {
+  .sidebar {
+    max-width: 30%;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .sidebar {
+    max-width: 40%;
+  }
+}
+
+@media screen and (max-width: 759px) {
   .sidebar {
     display: none;
   }
+}
 
-  .listpage {
-    width: 100%;
-  }
-  
+.listpage {
+  width: 100%;
 }

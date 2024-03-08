@@ -1,7 +1,7 @@
 import "./index.css";
 // import Section from "../Section";
 import AddItemButton from "../AddItemButton";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ItemCard from "../ItemCard";
 import Toolbar from "../Toolbar";
 import {

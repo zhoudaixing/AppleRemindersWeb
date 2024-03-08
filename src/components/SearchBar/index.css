@@ -1,0 +1,7 @@
+.search-bar {
+  margin: 1rem;
+  input {
+    border:  none;
+    outline: none;
+  }
+}
