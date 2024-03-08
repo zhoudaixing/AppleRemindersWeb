@@ -1,10 +1,16 @@
 import "./index.css";
 // import Section from "../Section";
 import AddItemButton from "../AddItemButton";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ItemCard from "../ItemCard";
-import { v4 as uuidv4 } from "uuid";
 import Toolbar from "../Toolbar";
+import {
+  createItem,
+  editItem,
+  checkItem,
+  listSortRule,
+  getListWithoutItem,
+} from "@/utils";
 
 const ListPage = ({
   currentList,
@@ -13,8 +19,7 @@ const ListPage = ({
   showCompleted,
   setShowCompleted,
 }) => {
-  // console.log(currentList);
-  // const listData = appData.filter((item) => item.list === currentList);
+  const [addButtonActive, setAddButtonActive] = useState(true);
   const itemsRef = useRef(null);
   const getMap = () => {
     if (!itemsRef.current) {
@@ -23,51 +28,37 @@ const ListPage = ({
     return itemsRef.current;
   };
 
-  const handleEditItem = (details, value) => {
-    // const map = getMap();
-    // const node = map.get(id);
-    // node.focus();
+  const handleEditItem = (item, value) => {
+    const editedItem = editItem(item, { title: value });
     setAppData([
-      ...appData.filter((item) => item.id !== details.id),
-      {
-        ...details,
-        title: value,
-      },
+      ...appData.filter((elment) => elment.id !== item.id),
+      editedItem,
     ]);
   };
 
-  const handleCheckItem = (details, checked) => {
-    // const map = getMap();
-    // const node = map.get(id);
-    // node.focus();
-    // console.log('check', details.completed)
+  const handleCheckItem = (item, checked) => {
+    const checkedItem = checkItem(item, checked);
     setAppData([
-      ...appData.filter((item) => item.id !== details.id),
-      {
-        ...details,
-        completed: checked,
-      },
+      ...appData.filter((elment) => elment.id !== item.id),
+      checkedItem,
     ]);
   };
 
   const handleAddItem = async () => {
-    console.log("click, add item");
-    const id = uuidv4();
-    await setAppData([
-      ...appData,
-      {
-        id,
-        title: "",
-        list: currentList,
-        completed: false,
-        order: appData.length + 1,
-      },
-    ]);
-    // console.log(appData)
+    const item = createItem({
+      title: "",
+      list: currentList,
+      manual: appData.length + 1,
+    });
+    await setAppData([...appData, item]);
     const map = getMap();
-    const node = map.get(id);
-    // console.log(map);
+    const node = map.get(item.id);
     node.focus();
+  };
+
+  const handleDeleteItem = (itemID) => {
+    setAppData(getListWithoutItem(appData, itemID));
+    setAddButtonActive(true);
   };
 
   return (
@@ -79,7 +70,7 @@ const ListPage = ({
 
       <div className="listpage-title">{currentList}</div>
 
-      <div className="list-container">
+      <div className="list-container" onBlur={() => setAddButtonActive(true)}>
         {appData
           .filter((item) => {
             let show = true;
@@ -87,12 +78,7 @@ const ListPage = ({
             show = show && item.list === currentList;
             return show;
           })
-          .sort((a, b) => {
-            if(a.completed && b.completed) return 0
-            if(a.completed) return 1
-            if(b.completed) return -1
-            return a.order - b.order;
-          })
+          .sort(listSortRule("manual"))
           .map((item) => (
             <ItemCard
               key={item.id}
@@ -108,10 +94,13 @@ const ListPage = ({
               // onClick={() => handleEditItem(item.id)}
               onCheck={handleCheckItem}
               onChange={handleEditItem}
+              onkeyDown={handleAddItem}
+              onDelete={handleDeleteItem}
+              onFocus={() => setAddButtonActive(false)}
             />
           ))}
       </div>
-      <AddItemButton handleClick={handleAddItem} />
+      {addButtonActive && <AddItemButton handleClick={handleAddItem} />}
     </div>
   );
 };

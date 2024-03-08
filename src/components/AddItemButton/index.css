@@ -1,5 +1,12 @@
 .add-item-bar {
   position: fixed;
   bottom: 1rem;
-  padding-left: 1rem;
+  padding-left: 0.5rem;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  .icon {
+    margin: 0 0.5rem 0 0.2rem;
+    width: 1.1rem;
+  }
 }

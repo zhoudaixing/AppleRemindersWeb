@@ -92,7 +92,7 @@ export const initialList = [
 export const initialListReminders = [
   {
     id: 1,
-    createdTime: "",
+    createdTime: "1709794174",
     lastModified: "",
     title: "a title",
     notes: "a notes",
@@ -107,11 +107,11 @@ export const initialListReminders = [
     list: "reminders",
     subtasks: [],
     images: [],
-    order: 1,
+    manual: 1,
   },
   {
     id: 2,
-    createdTime: "",
+    createdTime: "1709707774",
     completed: false,
     lastModified: "",
     title: "a title 2",
@@ -126,6 +126,6 @@ export const initialListReminders = [
     list: "reminders",
     subtasks: [],
     images: [],
-    order: 2,
+    manual: 2,
   },
 ];

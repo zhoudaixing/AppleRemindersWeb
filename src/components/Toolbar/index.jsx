@@ -1,5 +1,8 @@
 import classNames from "classnames"
 import './index.css'
+import upload from '@/assets/svg/upload.svg'
+import more from '@/assets/svg/more.svg'
+
 
 const Toolbar = ({showCompleted, setShowCompleted}) => {
   const handleClickMore = () => {
@@ -10,8 +13,8 @@ const Toolbar = ({showCompleted, setShowCompleted}) => {
       <div className={classNames('toolbar-left')}></div>
       <div className={classNames('toolbar-mid')}></div>
       <div className={classNames('toolbar-right')}>
-        <img src="src/assets/svg/upload.svg" className={classNames('icon', 'icon-upload')} />
-        <img src="src/assets/svg/more.svg" className={classNames('icon', 'icon-more')} onClick={handleClickMore} />
+        <img src={upload} className={classNames('icon', 'icon-upload')} />
+        <img src={more} className={classNames('icon', 'icon-more')} onClick={handleClickMore} />
       </div>
     </div>
   )
